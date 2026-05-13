@@ -38,3 +38,11 @@ describe('Clicking "Pusha till stacken"', () => {
         await alert.accept();
     });
 });
+
+test('Clicking "poppa stacken" should show an alert', async () => {
+    let pop = await driver.findElement(By.id('pop'));
+    await pop.click();
+    let alert = await driver.switchTo().alert();
+    expect(await alert.getText()).toContain('detta stämmer inte');
+    await alert.accept();
+})
